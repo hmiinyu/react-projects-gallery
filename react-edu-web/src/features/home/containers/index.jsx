@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'm2-redux'
+import { homeService } from '@/features/app/services'
 import { home_dashboard_sections } from '@/features/home/constants/home.conf'
 import { getDataList, getDataItem } from '@/features/home/redux/actions'
 import './index.less'
@@ -9,8 +10,9 @@ class HomePage extends React.Component {
   state = {
   }
 
-  componentWillMount() {
-    // this.props.getDataList()
+  componentDidMount() {
+    homeService.renderBar()
+    homeService.renderPie()
   }
 
   render() {
@@ -32,10 +34,10 @@ class HomePage extends React.Component {
           </div>
           <div className="chart-section">
             <div className="chart">
-              <div id="main1" style={{height:400}}></div>
+              <div id="order-bar-chart" style={{height:400}}></div>
             </div>
             <div className="chart">
-              <div id="main2" style={{height:400}}></div>
+              <div id="order-pie-chart" style={{height:400}}></div>
             </div>
           </div>
         </div>

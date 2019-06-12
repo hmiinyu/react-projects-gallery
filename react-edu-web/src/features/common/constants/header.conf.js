@@ -8,5 +8,5 @@ export const header_menus = [
   { name: 'cloud', url: '#', icon: 'cloud-upload', text: '教育云中心' },
   { name: 'sales', url: '#', icon: 'yelp', text: '分销中心' },
   { name: 'crm', url: '#', icon: 'xing', text: 'CRM对接中心' },
-  { name: 'user', url: '#', icon: 'user', text: '个人中心' }
+  { name: 'user', url: '#/settings/user', icon: 'user', text: '个人中心' }
 ];

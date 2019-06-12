@@ -16,13 +16,12 @@
     "font-awesome": "4.7.0",
     "jquery": "3.3.1",
     "m2-core": "^1.0.2",
-    "m2-react": "^1.0.1",
-    "m2-redux": "^1.0.1",
+    "m2-react": "^1.0.2",
+    "m2-redux": "^1.0.2",
     "nprogress": "0.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
@@ -90,7 +89,8 @@
     "extends": "react-app",
     "rules": {
       "no-restricted-globals": "off",
-      "jsx-a11y/anchor-is-valid": "off"
+      "jsx-a11y/anchor-is-valid": "off",
+      "no-script-url": "off"
     }
   },
   "babel": {
