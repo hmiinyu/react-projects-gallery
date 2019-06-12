@@ -1,0 +1,112 @@
+@import "~@res/css/variable.less";
+
+.main .home-page .settings {
+  padding: 40px 0 20px;
+  background-color: #FFF;
+}
+.main .home-page .settings .preview {
+  width: 120px;
+  height: 120px;
+  padding: 0;
+  margin-left: 15px;
+  overflow: hidden;
+  position: relative;
+}
+.main .home-page .settings .preview:hover .cover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.main .home-page .settings .preview:hover .fa-upload {
+  color: rgba(240, 240, 240, 0.8);
+}
+.main .home-page .settings input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.main .home-page .settings .cover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 120px;
+  font-size: 40px;
+  background-color: rgba(0, 0, 0, 0);
+  transition: all 0.3s;
+}
+.main .home-page .settings .fa-upload {
+  color: rgba(240, 240, 240, 0);
+}
+.main .home-page .settings .uploadify {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.main .home-page .settings .ckeditor {
+  min-height: 300px;
+}
+.main .home-page .settings select {
+  width: 32%;
+  margin-right: 2%;
+  float: left;
+}
+.main .home-page .settings select:last-child {
+  margin-right: 0;
+}
+.main .home-page .profile .cell {
+  height: 200px;
+  padding: 15px;
+  color: #FFF;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main .home-page .profile .cell .fa {
+  font-size: 80px;
+}
+.main .home-page .profile .row > div.cell-item {
+  padding-right: 0;
+}
+.main .home-page .profile .row > div.cell-item:nth-child(3n) {
+  padding-right: 15px;
+}
+.main .home-page .profile .s1 {
+  background-color: #bd2130;
+}
+.main .home-page .profile .s2 {
+  background-color: #d39e00;
+}
+.main .home-page .profile .s3 {
+  background-color: #17a2b8;
+}
+.main .home-page .profile .s4 {
+  background-color: #007bff;
+}
+.main .home-page .profile .s5 {
+  background-color: #17a2b8;
+}
+.main .home-page .profile .s6 {
+  background-color: #545b62;
+}
+.main .home-page .profile .chart {
+  min-height: 400px;
+  padding: 30px 15px;
+  overflow: hidden;
+  width: 49.3%;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  float: left;
+}
+.main .home-page .profile .chart:last-child{
+  float: right;
+}
