@@ -9,9 +9,9 @@ export const sidebar_menus = [
       { name: 'course-topic', url: '#/course/topic', text: '课程专题' }
     ]
   },
-  { name: 'ops-center', url: '#', icon: 'bars', text: '运营中心' },
-  { name: 'model-center', url: '#', icon: 'calculator', text: '建模中心' },
-  { name: 'settings', url: '#', icon: 'cog', text: '系统设置', children:
+  { name: 'ops-center', url: 'javascript:void(0)', icon: 'bars', text: '运营中心' },
+  { name: 'model-center', url: '#/model', icon: 'calculator', text: '建模中心' },
+  { name: 'settings', url: 'javascript:void(0)', icon: 'cog', text: '系统设置', children:
     [
       { name: 'settings-site', url: '#', text: '站点设置' },
       { name: 'settings-user', url: '#/settings/user', text: '用户设置' },

@@ -5,6 +5,7 @@ import homeRouter from '@/features/home/router'
 import userRouter from '@/features/user/router'
 import authRouter from '@/features/auth/router'
 import courseRouter from '@/features/course/router'
+import modelRouter from '@/features/model/router'
 import settingsRouter from '@/features/settings/router'
 
 export default loadLayoutRoutesConfig(layouts, [
@@ -13,5 +14,6 @@ export default loadLayoutRoutesConfig(layouts, [
   userRouter,
   authRouter,
   courseRouter,
+  modelRouter,
   settingsRouter
 ]);
