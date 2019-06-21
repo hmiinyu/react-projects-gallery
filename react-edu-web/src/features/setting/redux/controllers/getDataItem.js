@@ -1,5 +1,5 @@
 import { ReduxFactory } from 'm2-redux'
-import config from '@/features/auth/redux/config'
+import config from '@/features/setting/redux/config'
 
 const params = { config, actionKey: 'item' }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'm2-redux'
-import { homeService } from '@/features/app/services'
+import { homeService } from '@/features/app/service'
 import { home_dashboard_sections } from '@/features/home/constants/home.conf'
 import { getDataList, getDataItem } from '@/features/home/redux/actions'
 import './index.less'

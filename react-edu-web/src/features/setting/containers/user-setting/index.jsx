@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.less'
 
-class UserSettingsPage extends React.Component {
+class UserSettingPage extends React.Component {
   state = {
   }
 
@@ -108,4 +108,4 @@ class UserSettingsPage extends React.Component {
   }
 }
 
-export default UserSettingsPage
+export default UserSettingPage

@@ -1,9 +1,10 @@
-import UserPage from '@/features/user/containers'
+import UserLoginPage from '@/features/auth/containers'
 
 export default [{
-  path: '/auth',
+  path: 'auth',
   name: '认证模块',
+  layout: 'simple',
   children: [
-    { name: '默认页', component: UserPage, isDefault: true }
+    { name: '默认页', component: UserLoginPage, public: true, default: true }
   ]
 }]

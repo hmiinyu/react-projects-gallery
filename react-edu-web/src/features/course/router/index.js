@@ -4,7 +4,7 @@ import CourseCategoryPage from '@/features/course/containers/category'
 import CourseTopicPage from '@/features/course/containers/topic'
 
 export default [{
-  path: '/course',
+  path: 'course',
   name: '课程模块',
   children: [
     { name: '课程列表页面', component: CourseListPage, default: true  },

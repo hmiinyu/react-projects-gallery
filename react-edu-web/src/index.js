@@ -5,7 +5,7 @@ import AppRouter from '@/features/app/router'
 import AppStore from '@/features/app/redux/store'
 
 render(
-  <Root store={AppStore()} routes={AppRouter}/>
+  <Root {...AppStore} {...AppRouter}/>
 )
 
 // 多个组件使用components参数
@@ -13,7 +13,7 @@ render(
 render({
   components: [
     // <Loading key="loading"/>,
-    <Root store={AppStore()} routes={AppRouter} key="root"/>
+    <Root {...AppStore} {...AppRouter} key="root"/>
   ]
 })
 */

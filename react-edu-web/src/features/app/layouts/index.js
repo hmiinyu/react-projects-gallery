@@ -1,7 +1,7 @@
-import AppLayout from '@/features/app/layouts/default'
+import DefaultLayout from '@/features/app/layouts/default'
 import SimpleLayout from '@/features/app/layouts/simple'
 
 export default [
-  { name: 'simple', layout: SimpleLayout },
-  { name: 'app', layout: AppLayout, default: true }
+  { name: 'simple', layout: SimpleLayout, prefix: 'app' },
+  { name: 'default', layout: DefaultLayout, default: true }
 ]

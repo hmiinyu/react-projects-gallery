@@ -1,2 +1,2 @@
-export { action as getDataList } from '@/features/auth/redux/controllers/getDataList'
-export { action as getDataItem } from '@/features/auth/redux/controllers/getDataItem'
+export { action as userLogin } from '@/features/auth/redux/controllers/userLogin'
+export { action as userLogout } from '@/features/auth/redux/controllers/userLogout'

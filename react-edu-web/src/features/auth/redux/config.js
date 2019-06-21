@@ -2,7 +2,6 @@
 export default {
   feature: 'auth',
   actionKeys: [
-    { key: 'list', data: [] },
-    { key: 'item', data: {} }, // async: true, emit: true }
+    { key: 'loginUser', data: { username: '', authenticated: false } }
   ]
 }

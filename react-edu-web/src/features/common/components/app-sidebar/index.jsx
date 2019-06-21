@@ -1,5 +1,5 @@
 import React from 'react'
-import { commonService } from '@/features/app/services'
+import { commonService } from '@/features/app/service'
 import { sidebar_menus } from '@/features/common/constants/sidebar.conf'
 import './index.less'
 
@@ -12,7 +12,7 @@ export default class AppSideBar extends React.Component {
     return (
       <div className="sidebar">
         <div className="profile">
-          <a href="#/settings/user">
+          <a href="#/setting/user">
             <div className="avatar img-circle">
               <img src="/static/img/avatar.png" alt="Avatar"/>
             </div>

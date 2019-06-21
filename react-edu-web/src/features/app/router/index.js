@@ -6,14 +6,21 @@ import userRouter from '@/features/user/router'
 import authRouter from '@/features/auth/router'
 import courseRouter from '@/features/course/router'
 import modelRouter from '@/features/model/router'
-import settingsRouter from '@/features/settings/router'
+import settingRouter from '@/features/setting/router'
 
-export default loadLayoutRoutesConfig(layouts, [
+const routes = loadLayoutRoutesConfig(layouts, [
   commonRouter,
   homeRouter,
   userRouter,
   authRouter,
   courseRouter,
   modelRouter,
-  settingsRouter
-]);
+  settingRouter
+])
+
+export default {
+  routes,
+  routeType: 'hash',
+  redirectUrl: '/app/auth',
+  redirect404: '/app/common/404'
+}
