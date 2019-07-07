@@ -1,7 +1,8 @@
 import React from 'react'
-import AppTabBar from '@/features/common/components/tab-bar'
+import TabBar from '@/features/common/components/tab-bar'
 import BannerHeader from '@/features/home/components/banner-header'
 import CategoryList from '@/features/home/components/category-list'
+import RetailerList from '@/features/home/components/retailer-list'
 import './index.less'
 
 class HomePage extends React.Component {
@@ -10,7 +11,8 @@ class HomePage extends React.Component {
       <div className="home-page">
         <BannerHeader/>
         <CategoryList/>
-        <AppTabBar/>
+        <RetailerList/>
+        <TabBar/>
       </div>
     )
   }
