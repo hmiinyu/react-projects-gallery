@@ -1,11 +1,9 @@
 import { ReduxFactory } from 'm2-redux'
-import { reducer as getDataListReducer } from '@/features/home/redux/controllers/getDataList'
-import { reducer as getDataItemReducer } from '@/features/home/redux/controllers/getDataItem'
+import { reducer as getCategoryListReducer } from '@/features/home/redux/controllers/getCategoryList'
 import config from '@/features/home/redux/config'
 
 const reducers = [
-  getDataListReducer,
-  getDataItemReducer
+  getCategoryListReducer
 ]
 
 const initialState = ReduxFactory.createInitialState(config)

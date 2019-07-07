@@ -2,7 +2,6 @@
 export default {
   feature: 'home',
   actionKeys: [
-    { key: 'list', data: [] },
-    { key: 'item', data: {} }
+    { key: 'categories', data: [], async: true }
   ]
 }
