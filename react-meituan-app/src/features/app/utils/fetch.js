@@ -22,8 +22,8 @@ const _fetch = (url, options) => {
           if (_opts.key) {
             if (DataType.isArray(res.result)) {
               res.result.map(item => item._key = DataUtil.randomString(_opts.keyLen))
-            } else if (DataType.isArray(res.result.list)) {
-              res.result.list.map(item => item._key = DataUtil.randomString(_opts.keyLen))
+            } else if (DataType.isArray(res.result[_opts.itemsName])) {
+              res.result[_opts.itemsName].map(item => item._key = DataUtil.randomString(_opts.keyLen))
             }
           }
           resolve(res.result)

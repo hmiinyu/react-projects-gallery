@@ -3,6 +3,6 @@ export default {
   feature: 'home',
   actionKeys: [
     { key: 'categories', data: [], async: true },
-    { key: 'retailers', data: [], async: true }
+    { key: 'retailers', data: [], async: true, merge: true, emit: true }
   ]
 }

@@ -1,1 +1,1 @@
-export { type as getDictListType } from '@/features/common/redux/controllers/getDictList'
+export { type as getRetailerListType } from '@/features/home/redux/controllers/getRetailerList'

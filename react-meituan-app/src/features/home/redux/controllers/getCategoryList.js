@@ -8,4 +8,4 @@ const promise = () => homeService.getCategoryList()
 export const action = () => ReduxFactory.createAsyncAction(promise, params, (res) => {
   return res && res.primary_filter ? res.primary_filter.slice(0, 8) : []
 })
-export const reducer = (state, action) => ReduxFactory.createAsyncReducer(state, action, params);
+export const reducer = (state, action) => ReduxFactory.createAsyncReducer(state, action, params)
