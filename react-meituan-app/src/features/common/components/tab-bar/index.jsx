@@ -1,23 +1,25 @@
 import React from 'react'
-import { tab_bar_items } from '@/features/common/constants/tab-bar.conf'
+import { connect } from 'm2-redux'
+import { changeTabItem } from '@/features/common/redux/actions'
 import './index.less'
 
-class AppTabBar extends React.Component {
-  state = {
-    activeKey: 'home'
+@connect({ reducers: 'common', actions: { changeTabItem }})
+class TabBar extends React.Component {
+
+  handleChangeTab(item) {
+    this.props.changeTabItem(item)
+    location.href = `#${item.url}`
   }
 
   renderItem(item) {
-    const { activeKey } = this.state
-    const active = item.name === activeKey
-    const itemName = active ? `${item.name}_active` : item.name
+    const itemName = item.active ? `${item.name}_active` : item.name
     const iconStyle = {
       backgroundImage: `url(/static/img/tab-bar/${itemName}.png)`
     }
     return (
       <div key={item.name}
-           className={`tab-item ${active ? 'tab-item-active' : ''}`}
-           onClick={() => this.setState({activeKey: item.name})}>
+           className={`tab-item ${item.active ? 'tab-item-active' : ''}`}
+           onClick={() => this.handleChangeTab(item)}>
         <div className="tab-item-icon" style={iconStyle}/>
         <div className="tab-item-text">{item.text}</div>
       </div>
@@ -25,14 +27,15 @@ class AppTabBar extends React.Component {
   }
 
   render() {
+    const { tabs } = this.props.common
     return (
       <div className="mt-tab-bar">
         {
-          tab_bar_items.map(item => this.renderItem(item))
+          tabs.map(item => this.renderItem(item))
         }
       </div>
     )
   }
 }
 
-export default AppTabBar
+export default TabBar

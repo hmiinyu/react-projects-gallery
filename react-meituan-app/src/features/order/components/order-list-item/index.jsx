@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import RatingStar from '@/features/common/components/rating-star'
 import './index.less'
 
-class ListItem extends React.Component {
+class OrderListItem extends React.Component {
 
   renderBrand(type) {
     return type ? <sup className="item-brand brand-pin">品牌</sup> : <sup className="item-brand brand-new">新到</sup>
@@ -25,7 +25,7 @@ class ListItem extends React.Component {
   render() {
     const { item } = this.props
     return (
-      <div className="mt-list-item border-1px">
+      <div className="mt-order-item border-1px">
         <div className="item-left">
           <img className="item-img" src={item.pic_url} alt=""/>
           {this.renderBrand(item.brand_type)}
@@ -54,8 +54,8 @@ class ListItem extends React.Component {
   }
 }
 
-ListItem.propTypes = {
+OrderListItem.propTypes = {
   item: PropTypes.object.isRequired
 }
 
-export default ListItem
+export default OrderListItem
