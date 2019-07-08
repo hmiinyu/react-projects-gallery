@@ -16,7 +16,6 @@ const _event = {
           // 停止加载
         } else {
           page = page + 1
-          console.log(mounted)
           mounted && component.setState({ loading: true, page })
           load && load()
         }

@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchBar from '@/features/home/components/search-bar'
+import { SearchBar } from '@/features/home/components'
 import './index.less'
 
 export default () => (

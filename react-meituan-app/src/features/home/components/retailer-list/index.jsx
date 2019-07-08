@@ -1,7 +1,7 @@
 import React from 'react'
-import RetailerListItem from '@/features/home/components/retailer-list-item'
-import { homeService } from '@/features/app/service'
 import { event } from '@/features/app/utils/event'
+import { homeService } from '@/features/app/service'
+import { RetailerListItem } from '@/features/home/components'
 import './index.less'
 
 class RetailerList extends React.Component {

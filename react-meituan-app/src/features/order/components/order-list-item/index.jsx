@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import RatingStar from '@/features/common/components/rating-star'
+import { RatingStar } from '@/features/common/components'
 import './index.less'
 
 class OrderListItem extends React.Component {

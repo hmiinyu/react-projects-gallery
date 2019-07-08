@@ -1,8 +1,6 @@
 import React from 'react'
-import TabBar from '@/features/common/components/tab-bar'
-import BannerHeader from '@/features/home/components/banner-header'
-import CategoryList from '@/features/home/components/category-list'
-import RetailerList from '@/features/home/components/retailer-list'
+import { TabBar } from '@/features/common/components'
+import { BannerHeader, CategoryList, RetailerList } from '@/features/home/components'
 import './index.less'
 
 class HomePage extends React.Component {
