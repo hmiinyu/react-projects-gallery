@@ -1,44 +1,18 @@
 import React from 'react'
-import { event } from '@/features/app/utils/event'
+import { ScrollView } from '@/features/common/components'
 import { homeService } from '@/features/app/service'
 import { RetailerListItem } from '@/features/home/components'
 import './index.less'
 
 class RetailerList extends React.Component {
-
-  fields = {
-    mounted: false
-  }
-
   state = {
-    page: 1,
-    loading: false,
     items: []
   }
 
-  async getItemsData() {
-    this.fields.mounted = true
-    const { page, items } = this.state
-    const { mounted } = this.fields
-    const result = await homeService.getRetailerList({ page })
-    if (result) {
-      mounted && this.setState({
-        items: [...items, ...result.poilist],
-        loading: false
-      })
-    }
-  }
-
-  componentWillMount() {
-    event.add('scroll', this, { load: this.getItemsData.bind(this) })
-  }
-
-  componentDidMount() {
-    this.getItemsData()
-  }
-
-  componentWillUnmount() {
-    event.remove('scroll', this, { load: this.getItemsData.bind(this) })
+  updateItems(result, callback) {
+    this.setState({
+      items: [...this.state.items, ...result['poilist']]
+    }, callback && callback())
   }
 
   render() {
@@ -51,9 +25,12 @@ class RetailerList extends React.Component {
             <span>附近商家</span>
           </h4>
         </div>
-        {
-          items && items.map(item => <RetailerListItem key={item._key} item={item}/>)
-        }
+        <ScrollView loadData={homeService.getRetailerList}
+                    updateItems={this.updateItems.bind(this)}>
+          {
+            items && items.map(item => <RetailerListItem key={item._key} item={item}/>)
+          }
+        </ScrollView>
       </div>
     )
   }

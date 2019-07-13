@@ -1,54 +1,58 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { RatingStar } from '@/features/common/components'
+import { DataUtil } from 'm2-core'
 import './index.less'
 
 class OrderListItem extends React.Component {
 
-  renderBrand(type) {
-    return type ? <sup className="item-brand brand-pin">品牌</sup> : <sup className="item-brand brand-new">新到</sup>
+  renderProducts(data = []) {
+    return data.map(item => {
+      return (
+        <div key={DataUtil.randomString(5)} className="product-item">
+          {item.product_name}<sub className="product-count">x{item.product_count}</sub>
+        </div>
+      )
+    })
   }
 
-  renderSaleNum(num) {
-    return <span className="sale-count">月售 { num > 999 ? '999+' : num }</span>
-  }
-
-  renderInfo(discount) {
-    return discount && discount.map(item => (
-      <div key={item.id} className="item-info">
-        <img className="item-info-icon" src={item.icon_url} alt=""/>
-        <div className="item-info-content">{item.info}</div>
+  renderTotalInfo(item) {
+    return (
+      <div key="total-info" className="product-item">
+        <span className="product-more">...</span>
+        <div className="product-total">总计 {item.product_count} 个菜，实付<span className="total-price">￥{item.total}</span></div>
       </div>
-    ))
+    )
+  }
+
+  renderComments(item) {
+    return (
+      !item.is_comment && (
+        <div className="item-comment clear-fix">
+          <div className="comment-btn">评价</div>
+        </div>
+      )
+    )
   }
 
   render() {
     const { item } = this.props
     return (
-      <div className="mt-order-item border-1px">
-        <div className="item-left">
-          <img className="item-img" src={item.pic_url} alt=""/>
-          {this.renderBrand(item.brand_type)}
-        </div>
-        <div className="item-detail">
-          <h3 className="item-name">{item.name}</h3>
-          <div className="item-desc clear-fix">
-            <div className="item-desc-left">
-              <RatingStar star={item.wm_poi_score}/>
-              {this.renderSaleNum(item.month_sale_num)}
+      <div className="mt-order-item">
+        <div className="order-item-inner border-1px">
+          <img className="item-img" src={item.poi_pic} alt=""/>
+          <div className="item-right">
+            <div className="item-top border-1px">
+              <h3 className="item-name text-ellipsis">{item.poi_name}</h3>
+              <div className="arrow-icon"/>
+              <div className="item-status">{item.status_description}</div>
             </div>
-            <div className="item-desc-right">
-              <span className="estimate-time">{item.mt_delivery_time}</span>
-              <span className="divider">|</span>
-              <span className="distance">{item.distance}</span>
+            <div className="item-bottom">
+              {this.renderProducts(item.product_list)}
+              {this.renderTotalInfo(item)}
             </div>
           </div>
-          <div className="item-price clear-fix">
-            <div className="item-pre-price">{item.min_price_tip}</div>
-            {!!item.delivery_type && (<div className="item-mt-delivery">美团专送</div>)}
-          </div>
-          {this.renderInfo(item.discounts2)}
         </div>
+        {this.renderComments(item)}
       </div>
     )
   }

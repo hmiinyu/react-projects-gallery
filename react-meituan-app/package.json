@@ -11,7 +11,7 @@
     "uat": "node scripts/uat.js"
   },
   "dependencies": {
-    "m2-core": "^1.1.4",
+    "m2-core": "1.1.7",
     "m2-react": "1.1.1",
     "m2-redux": "1.1.1",
     "prop-types": "^15.7.2",

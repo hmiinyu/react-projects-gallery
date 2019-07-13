@@ -16,8 +16,7 @@ const _event = {
           // 停止加载
         } else {
           page = page + 1
-          mounted && component.setState({ loading: true, page })
-          load && load()
+          mounted && component.setState({ loading: true, page }, () => load && load())
         }
       }, { threshold });
     }
