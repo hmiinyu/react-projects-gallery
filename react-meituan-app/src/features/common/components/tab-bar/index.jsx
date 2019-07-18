@@ -1,41 +1,36 @@
 import React from 'react'
-import { connect } from 'm2-redux'
-import { changeTabItem } from '@/features/common/redux/actions'
+import { NavLink, withRouter } from 'react-router-dom'
+import { tab_bar_items } from '@/features/common/constants/tab-bar.conf'
 import './index.less'
 
-@connect({ reducers: 'common', actions: { changeTabItem }})
 class TabBar extends React.Component {
 
   handleChangeTab(item) {
-    this.props.changeTabItem(item)
-    location.href = `#${item.url}`
+    this.props.history.replace(item.name)
   }
 
   renderItem(item) {
-    const itemName = item.active ? `${item.name}_active` : item.name
-    const iconStyle = {
-      backgroundImage: `url(/static/img/tab-bar/${itemName}.png)`
-    }
+    const config = item.default ? { exact: true, to: '/' } : { to: `/${item.name}` }
     return (
-      <div key={item.name}
-           className={`tab-item${item.active ? ' tab-item-active' : ''}`}
-           onClick={() => this.handleChangeTab(item)}>
-        <div className="tab-item-icon" style={iconStyle}/>
+      <NavLink key={item.name} replace={true} {...config}
+               className={`tab-item tab-item-${item.name}`}
+               activeClassName="tab-item-active"
+               onClick={() => this.handleChangeTab(item)}>
+        <div className="tab-item-icon"/>
         <div className="tab-item-text">{item.text}</div>
-      </div>
+      </NavLink>
     )
   }
 
   render() {
-    const { tabs } = this.props.common
     return (
       <div className="mt-tab-bar">
         {
-          tabs.map(item => this.renderItem(item))
+          tab_bar_items.map(item => this.renderItem(item))
         }
       </div>
     )
   }
 }
 
-export default TabBar
+export default withRouter(TabBar)

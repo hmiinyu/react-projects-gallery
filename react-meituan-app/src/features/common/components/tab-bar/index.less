@@ -14,6 +14,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
     .tab-item-icon {
       width: .25rem;
       height: .25rem;
@@ -22,6 +23,36 @@
     }
     &.tab-item-active {
       color: @black;
+    }
+    &.tab-item-home {
+      .tab-item-icon {
+        background-image: url("/static/img/tab-bar/home.png");
+      }
+      &.tab-item-active {
+        .tab-item-icon {
+          background-image: url("/static/img/tab-bar/home_active.png");
+        }
+      }
+    }
+    &.tab-item-order {
+      .tab-item-icon {
+        background-image: url("/static/img/tab-bar/order.png");
+      }
+      &.tab-item-active {
+        .tab-item-icon {
+          background-image: url("/static/img/tab-bar/order_active.png");
+        }
+      }
+    }
+    &.tab-item-mine {
+      .tab-item-icon {
+        background-image: url("/static/img/tab-bar/mine.png");
+      }
+      &.tab-item-active {
+        .tab-item-icon {
+          background-image: url("/static/img/tab-bar/mine_active.png");
+        }
+      }
     }
   }
 }
