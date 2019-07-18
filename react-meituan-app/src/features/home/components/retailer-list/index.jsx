@@ -1,6 +1,6 @@
 import React from 'react'
-import { ScrollView } from '@/features/common/components'
 import { homeService } from '@/features/app/service'
+import { ScrollView } from '@/features/common/components'
 import { RetailerListItem } from '@/features/home/components'
 import './index.less'
 
