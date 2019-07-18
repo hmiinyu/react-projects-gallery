@@ -12,11 +12,11 @@ const _event = {
         let { mounted } = component.fields
         if (loading) return
         if (page >= 3) {
-          mounted && component.setState({ loading: false })
+          mounted && component.setState({ loading: false, hasMore: false })
           // 停止加载
         } else {
           page = page + 1
-          mounted && component.setState({ loading: true, page }, () => load && load())
+          mounted && component.setState({ loading: true, hasMore: true, page }, () => load && load())
         }
       }, { threshold });
     }

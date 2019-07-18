@@ -18,7 +18,7 @@ class TabBar extends React.Component {
     }
     return (
       <div key={item.name}
-           className={`tab-item ${item.active ? 'tab-item-active' : ''}`}
+           className={`tab-item${item.active ? ' tab-item-active' : ''}`}
            onClick={() => this.handleChangeTab(item)}>
         <div className="tab-item-icon" style={iconStyle}/>
         <div className="tab-item-text">{item.text}</div>

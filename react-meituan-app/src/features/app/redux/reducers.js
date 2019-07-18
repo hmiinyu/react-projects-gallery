@@ -3,12 +3,14 @@ import commonReducer from '@/features/common/redux/reducers'
 import authReducer from '@/features/auth/redux/reducers'
 import homeReducer from '@/features/home/redux/reducers'
 import orderReducer from '@/features/order/redux/reducers'
+import mineReducer from '@/features/mine/redux/reducers'
 
 const reducerMap = {
   common: commonReducer,
   auth: authReducer,
   home: homeReducer,
-  order: orderReducer
+  order: orderReducer,
+  mine: mineReducer
 }
 
 export default (state, action) => ReduxFactory.createAppReducer(reducerMap, state, action);

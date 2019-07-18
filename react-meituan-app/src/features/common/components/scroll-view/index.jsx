@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { event } from '@/features/app/utils/event'
+import { Loading } from '@/features/common/components'
 import './index.less'
 
 class ScrollView extends React.Component {
@@ -10,7 +11,8 @@ class ScrollView extends React.Component {
 
   state = {
     page: 1,
-    loading: false
+    loading: false,
+    hasMore: true
   }
 
   async getItemsData() {
@@ -20,7 +22,7 @@ class ScrollView extends React.Component {
     const { mounted } = this.fields
     const result = await this.props.loadData({ page })
     if (result) {
-      mounted && updateItems(result, () => this.setState({ loading: false }))
+      mounted && updateItems(result, () => this.setState({ loading: false, hasMore: true }))
     }
   }
 
@@ -40,6 +42,7 @@ class ScrollView extends React.Component {
     return (
       <div className="mt-scroll-view">
         {this.props.children}
+        <Loading hasMore={this.state.hasMore}/>
       </div>
     )
   }
