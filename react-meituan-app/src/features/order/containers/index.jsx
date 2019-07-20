@@ -5,7 +5,7 @@ import './index.less'
 
 export default () => (
   <div className="order-page">
-    <NavBar title="订单"/>
+    <NavBar title="订单" back={false}/>
     <OrderList/>
     <TabBar/>
   </div>

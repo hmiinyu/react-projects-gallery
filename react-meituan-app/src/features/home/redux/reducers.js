@@ -1,6 +1,6 @@
 import { ReduxFactory } from 'm2-redux'
-import { reducer as getCategoryListReducer } from '@/features/home/redux/controllers/getCategoryList'
 import config from '@/features/home/redux/config'
+import { reducer as getCategoryListReducer } from '@/features/home/redux/controllers/getCategoryList'
 
 const reducers = [
   getCategoryListReducer
