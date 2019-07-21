@@ -4,4 +4,4 @@ import config from '@/features/product/redux/config'
 const params = { config, actionKey: 'tabsFilter', actionType: 'change' }
 
 export const action = (data) => ReduxFactory.createAction(params, data)
-export const reducer = (state, action) => ReduxFactory.createReducer(state, action, params, () => ({ ...state.tabsFilter, activeKey: action.payload }))
+export const reducer = (state, action) => ReduxFactory.createReducer(state, action, params, () => ({ ...state.tabsFilter, ...action.payload }))

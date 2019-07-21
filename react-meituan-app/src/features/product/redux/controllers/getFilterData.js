@@ -1,18 +1,22 @@
 import { ReduxFactory } from 'm2-redux'
 import config from '@/features/product/redux/config'
-import { tab_filter_items } from '@/features/product/constants/tab-filter.conf'
 
 const params = { config, actionKey: 'tabsFilter', actionType: 'get' }
 
 export const action = (data) => ReduxFactory.createAction(params, data)
 export const reducer = (state, action) => ReduxFactory.createReducer(state, action, params, () => {
   const { items } = state.tabsFilter
-  const { cate, sort, filter } = tab_filter_items
-  const { category_filter_list, sort_type_list, activity_filter_list } = action.payload
+  const { item, tabKey, tabFilter, fields } = action.payload
+  const filter = (data) => data.map(filter => ({...filter, active: filter.code === item.code}))
 
-  items[cate].data = category_filter_list
-  items[sort].data = sort_type_list
-  items[filter].data = activity_filter_list
+  if (fields) {
+    const data = items[tabKey].data.find(item => item[fields.tab] === tabFilter[fields.tab])
+    if (data) {
+      data[fields.sub] = filter(tabFilter[fields.sub])
+    }
+  } else {
+    items[tabKey].data = filter(tabFilter)
+  }
 
   return state.tabsFilter
 })

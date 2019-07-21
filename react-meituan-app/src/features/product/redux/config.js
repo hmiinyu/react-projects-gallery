@@ -7,7 +7,8 @@ export default {
     {
       key: 'tabsFilter',
       data: {
-        activeKey: tab_filter_items.cate,
+        activeKey: '',
+        showPanel: false,
         items: {
           [tab_filter_items.cate]: { key: tab_filter_items.cate, text: '全部品类', data: [] },
           [tab_filter_items.sort]: { key: tab_filter_items.sort, text: '综合排序', data: [] },

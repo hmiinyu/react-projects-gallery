@@ -19,6 +19,9 @@
       &:last-child {
         border-right: 0;
       }
+      &.tab-filter-cate:before {
+        background-color: @bg-gray;
+      }
       &.current {
         &:before {
           display: inline-block;
@@ -70,8 +73,113 @@
     }
   }
   .cate-filter-content {
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    top: 1.05rem;
+    bottom: 0;
+    background-color: @gray;
     .cate-filter-inner {
-
+      overflow-x: hidden;
+      overflow-y: auto;
+      background-color: @white;
+      max-height: 3.25rem;
+      > ul {
+        background-color: @white;
+        display: none;
+        &.current {
+          display: block;
+        }
+        .sub-item-cate {
+          margin-bottom: .05rem;
+          .sub-item-title {
+            background: @bg-gray;
+          }
+        }
+        .sub-item-cate {
+          .sub-item-title {
+            margin-bottom: .05rem;
+            &:before {
+              content: '';
+              position: absolute;
+              display: block;
+              width: .02rem;
+              height: .16rem;
+              background-color: @yellow;
+              margin-top: .1rem;
+              left: .02rem;
+            }
+            .sub-item-quantity {
+              color: @white;
+              background-color: @border-gray;
+              margin-left: .08rem;
+              border-radius: .05rem;
+              padding: .02rem;
+            }
+          }
+        }
+        .sub-item-title {
+          font-size: @font-13;
+          height: .36rem;
+          line-height: .36rem;
+          padding-left: .1rem;
+          color: @dark;
+          position: relative;
+        }
+        .sub-item-sort {
+          height: .36rem;
+          line-height: .36rem;
+          color: @dark;
+          font-size: @font-13;
+          padding-left: .15rem;
+          &.active {
+            .sub-item-title {
+              color: @yellow;
+            }
+          }
+          &:after {
+            background: @border-gray;
+            width: 100%;
+            display: inherit;
+          }
+          &:last-child:after {
+            display: none;
+          }
+        }
+        .sub-item-content {
+          .cate-box {
+            float: left;
+            width: 33.33%;
+            font-size: @font-12;
+            padding: .05rem .1rem;
+            box-sizing: border-box;
+            .cate-box-inner {
+              border: 1px solid @border-gray;
+              height: .36rem;
+              line-height: .36rem;
+              text-align: center;
+              color: @dark;
+              position: relative;
+              &.active {
+                border-color: @yellow;
+                color: @yellow;
+                background-color: @bg-gray;
+              }
+              &.icon {
+                img {
+                  display: block;
+                  width: .18rem;
+                  height: .18rem;
+                  position: absolute;
+                  top: .08rem;
+                  left: .04rem;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
