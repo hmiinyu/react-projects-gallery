@@ -1,7 +1,6 @@
 import React from 'react'
-import { homeService } from '@/features/app/service'
-import { ScrollView } from '@/features/common/components'
-import { RetailerListItem } from '@/features/home/components'
+import { commonService } from '@/features/app/service'
+import { ScrollView, RetailerListItem } from '@/features/common/components'
 import './index.less'
 
 class RetailerList extends React.Component {
@@ -25,7 +24,7 @@ class RetailerList extends React.Component {
             <span>附近商家</span>
           </h4>
         </div>
-        <ScrollView loadData={homeService.getRetailerList}
+        <ScrollView loadData={commonService.getRetailerList}
                     updateItems={this.updateItems.bind(this)}>
           {
             items && items.map(item => <RetailerListItem key={item._key} item={item}/>)

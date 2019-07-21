@@ -1,3 +1,4 @@
+import { DataBus } from 'm2-core'
 import { ReduxFactory } from 'm2-redux'
 import config from '@/features/product/redux/config'
 
@@ -18,5 +19,10 @@ export const reducer = (state, action) => ReduxFactory.createReducer(state, acti
     items[tabKey].data = filter(tabFilter)
   }
 
-  return state.tabsFilter
+  items[tabKey].current = item.name
+
+  const params = { ...state.tabsFilter.params || {}, [tabKey]: item.code, reload: true }
+  DataBus.emit('load_retailer_data', params)
+
+  return { ...state.tabsFilter, showPanel: false, params }
 })

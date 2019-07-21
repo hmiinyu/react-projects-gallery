@@ -15,6 +15,10 @@ class CategoryFilter extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    clearInterval(this.timer)
+  }
+
   handleChangeTab(tabKey) {
     const { product, changeTabFilter } = this.props
     const { activeKey, showPanel } = product.tabsFilter
@@ -38,7 +42,7 @@ class CategoryFilter extends React.Component {
       <div key={item.key}
            className={`tab-filter-item tab-filter-${item.key} ${item.key === tabsFilter.activeKey && tabsFilter.showPanel ? 'current' : ''}`}
            onClick={() => this.handleChangeTab(item.key)}>
-        { item.text }
+        <span className="tab-filter-title text-ellipsis">{ item.current || item.text }</span>
       </div>
     ))
   }
@@ -101,11 +105,11 @@ class CategoryFilter extends React.Component {
         {
           tabKey === tab_filter_items.cate ? (
             <div className={`cate-box-inner ${item.active ? 'active' : ''}`}>
-              { item.name }({item.quantity})
+              <span className="cate-box-text text-ellipsis">{ item.name }({item.quantity})</span>
             </div>
           ) : (
             <div className={`cate-box-inner ${item.icon ? 'icon' : ''} ${item.active ? 'active' : ''}`}>
-              {item.icon && <img src={item.icon} alt=""/>} { item.name }
+              {item.icon && <img src={item.icon} alt=""/>} <span className="cate-box-text text-ellipsis">{ item.name }</span>
             </div>
           )
         }

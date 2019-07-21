@@ -9,10 +9,11 @@ export default {
       data: {
         activeKey: '',
         showPanel: false,
+        params: null,
         items: {
-          [tab_filter_items.cate]: { key: tab_filter_items.cate, text: '全部品类', data: [] },
-          [tab_filter_items.sort]: { key: tab_filter_items.sort, text: '综合排序', data: [] },
-          [tab_filter_items.filter]: { key: tab_filter_items.filter, text: '筛选', data: [] }
+          [tab_filter_items.cate]: { key: tab_filter_items.cate, text: '全部品类', current: '', data: [] },
+          [tab_filter_items.sort]: { key: tab_filter_items.sort, text: '综合排序', current: '', data: [] },
+          [tab_filter_items.filter]: { key: tab_filter_items.filter, text: '筛选', current: '', data: [] }
         }
       }
     }

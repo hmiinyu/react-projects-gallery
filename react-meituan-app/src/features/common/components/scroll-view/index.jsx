@@ -15,12 +15,18 @@ class ScrollView extends React.Component {
     hasMore: true
   }
 
-  async getItemsData() {
+  async getItemsData(params = null) {
+    console.log(params)
     this.fields.mounted = true
     const { updateItems } = this.props
     const { page } = this.state
     const { mounted } = this.fields
-    const result = await this.props.loadData({ page })
+    let config = { page }
+    if (params && params.reload) {
+      config = { ...params, page: 1 }
+      this.setState({ page: 1 })
+    }
+    const result = await this.props.loadData(config)
     if (result) {
       mounted && updateItems(result, () => this.setState({ loading: false, hasMore: true }))
     }
@@ -50,7 +56,8 @@ class ScrollView extends React.Component {
 
 ScrollView.propTypes = {
   loadData: PropTypes.func.isRequired,
-  updateItems: PropTypes.func.isRequired
+  updateItems: PropTypes.func.isRequired,
+  params: PropTypes.object
 }
 
 export default ScrollView
