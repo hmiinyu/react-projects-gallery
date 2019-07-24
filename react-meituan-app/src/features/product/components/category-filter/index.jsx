@@ -119,6 +119,7 @@ class CategoryFilter extends React.Component {
 
   render() {
     const { tabsFilter } = this.props.product
+
     return (
       <div className="mt-category-filter">
         <div className="cate-filter-header">

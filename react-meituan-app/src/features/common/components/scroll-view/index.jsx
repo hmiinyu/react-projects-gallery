@@ -16,7 +16,6 @@ class ScrollView extends React.Component {
   }
 
   async getItemsData(params = null) {
-    console.log(params)
     this.fields.mounted = true
     const { updateItems } = this.props
     const { page } = this.state
@@ -56,8 +55,7 @@ class ScrollView extends React.Component {
 
 ScrollView.propTypes = {
   loadData: PropTypes.func.isRequired,
-  updateItems: PropTypes.func.isRequired,
-  params: PropTypes.object
+  updateItems: PropTypes.func.isRequired
 }
 
 export default ScrollView
